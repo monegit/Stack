@@ -20,8 +20,13 @@ namespace Stack
     /// </summary>
     public partial class Main : Window
     {
+        private static Main _main;
+        internal static Main Instance { get => _main; }
+
         public Main()
         {
+            _main = this;
+
             InitializeComponent();
         }
     }

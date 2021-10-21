@@ -13,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Stack.UI.Component
+namespace Stack.UI.Panel
 {
     /// <summary>
-    /// Atom.xaml에 대한 상호 작용 논리
+    /// Monitor.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class Atom : UserControl
+    public partial class Monitor : UserControl
     {
-        public Atom()
+        public Monitor()
         {
             InitializeComponent();
         }
-
-        private void img1_Drop_1(object sender, DragEventArgs e)
-        {
-            var a = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-            img1.Source = new BitmapImage(new Uri(a[0], UriKind.Absolute));
-        }
-
     }
 }
