@@ -3,6 +3,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using Stack.Handler.Movement;
+using Stack.UI.Modal;
 
 namespace Stack
 {
@@ -21,6 +22,7 @@ namespace Stack
             InitializeComponent();
 
             new MovementHandler(asdf, Canvas);
+            //new Modal(StackBase);
         }
     }
 }

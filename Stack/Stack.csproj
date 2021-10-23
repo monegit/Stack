@@ -62,6 +62,10 @@
     <Compile Include="UI\Component\Atom.xaml.cs">
       <DependentUpon>Atom.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Modal\Modal.cs" />
+    <Compile Include="UI\Modal\ModalView.xaml.cs">
+      <DependentUpon>ModalView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Main.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -75,6 +79,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UI\Component\Atom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Modal\ModalView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
