@@ -9,44 +9,46 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#FF9E9E9E" >
 
-        <Grid>
+        <Grid x:Name="CanvasBase" Width="500" Height="300">
+            <Grid.Background>
+                <DrawingBrush Viewport="0,0,20,20" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup>
+                            <GeometryDrawing Brush="#222222">
+                                <GeometryDrawing.Geometry>
+                                    <GeometryGroup>
+                                        <RectangleGeometry Rect="0,0,10,10"/>
+                                        <RectangleGeometry Rect="10,10,10,10"/>
+                                    </GeometryGroup>
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#333333">
+                                <GeometryDrawing.Geometry>
+                                    <GeometryGroup>
+                                        <RectangleGeometry Rect="10,0,10,10"/>
+                                        <RectangleGeometry Rect="0,10,10,10"/>
+                                    </GeometryGroup>
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Grid.Background>
+
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="50" ShadowDepth="0" Color="#B2333333" />
             </Grid.Effect>
-            <Canvas x:Name="Canvas_El" Width="500" Height="300">
-                <Canvas.Background>
-                    <DrawingBrush Viewport="0,0,20,20" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
-                        <DrawingBrush.Drawing>
-                            <DrawingGroup>
-                                <GeometryDrawing Brush="#222222">
-                                    <GeometryDrawing.Geometry>
-                                        <GeometryGroup>
-                                            <RectangleGeometry Rect="0,0,10,10"/>
-                                            <RectangleGeometry Rect="10,10,10,10"/>
-                                        </GeometryGroup>
-                                    </GeometryDrawing.Geometry>
-                                </GeometryDrawing>
-                                <GeometryDrawing Brush="#333333">
-                                    <GeometryDrawing.Geometry>
-                                        <GeometryGroup>
-                                            <RectangleGeometry Rect="10,0,10,10"/>
-                                            <RectangleGeometry Rect="0,10,10,10"/>
-                                        </GeometryGroup>
-                                    </GeometryDrawing.Geometry>
-                                </GeometryDrawing>
-                            </DrawingGroup>
-                        </DrawingBrush.Drawing>
-                    </DrawingBrush>
-                </Canvas.Background>
 
-                <component:Atom Width="100" Height="100" />
-            </Canvas>
+            <Grid ClipToBounds="True">
+                <Canvas x:Name="Canvas">
+                    <component:Atom x:Name="asdf" Width="100" Height="100" />
+                </Canvas>
+            </Grid>
         </Grid>
 
-        <Border CornerRadius="10"
-            VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="20" Width="200" Height="120">
+        <Border CornerRadius="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="20" Width="200" Height="120">
             <Border.Background>
-                <VisualBrush Visual="{Binding ElementName=Canvas_El}" Stretch="Uniform" />
+                <VisualBrush Visual="{Binding ElementName=CanvasBase}" Stretch="Uniform" />
             </Border.Background>
         </Border>
     </Grid>
