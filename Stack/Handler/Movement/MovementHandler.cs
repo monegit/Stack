@@ -37,8 +37,8 @@ namespace Stack.Handler.Movement
                 new Thickness(
                     _margin.Left + moveX, 
                     _margin.Top + moveY, 
-                    _margin.Right, 
-                    _margin.Bottom);
+                    _margin.Right - moveX, 
+                    _margin.Bottom - moveY);
         }
 
         private void MouseUp(object sender, MouseButtonEventArgs e)
