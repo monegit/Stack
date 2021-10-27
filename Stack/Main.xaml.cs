@@ -15,6 +15,7 @@ namespace Stack
         private static Main _main;
         internal static Main Instance { get => _main; }
         private AdornerLayer adornerLayer;
+        Adorner adorner;
         
         public Main()
         {
@@ -27,10 +28,27 @@ namespace Stack
             //new Modal(StackBase);
         }
 
+        private void Button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             adornerLayer = AdornerLayer.GetAdornerLayer(asdf);
             adornerLayer.Add(new ResizeHandler(asdf));
+            adorner = adornerLayer.GetAdorners(asdf)[0];
+        }
+
+        private void Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+        }
+
+        private void Button_OnClick(object sender, RoutedEventArgs e)
+        {
+
+            adornerLayer = AdornerLayer.GetAdornerLayer(asdf);
+            adornerLayer.Remove(adorner);
+            MessageBox.Show("dd");
         }
     }
 }

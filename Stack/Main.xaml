@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Stack"
         xmlns:component="clr-namespace:Stack.UI.Component"
+        xmlns:model="clr-namespace:Stack.UI.Model"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" x:Name="Window">
+        Title="MainWindow" Height="450" Width="800" x:Name="Window" Loaded="Window_Loaded">
     <Grid x:Name="StackBase" Background="#FF9E9E9E" >
         <Grid x:Name="CanvasBase" Width="500" Height="300">
             <Grid.Background>
@@ -40,6 +41,7 @@
 
             <Grid ClipToBounds="True">
                 <Canvas x:Name="Canvas">
+                    <model:Button Width="100" Height="100" Margin="100" MouseLeftButtonDown="Button_MouseLeftButtonDown" PreviewMouseLeftButtonDown="Button_PreviewMouseLeftButtonDown" Click="Button_OnClick" Content="aa" FontSize="22" />
                     <component:Atom x:Name="asdf" Width="100" Height="100" />
                 </Canvas>
             </Grid>
