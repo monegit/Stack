@@ -14,15 +14,23 @@ namespace Stack
     {
         private static Main _main;
         internal static Main Instance { get => _main; }
-
+        private AdornerLayer adornerLayer;
+        
         public Main()
         {
             _main = this;
 
             InitializeComponent();
 
+            //new ResizeHandler(asdf);
             new MovementHandler(asdf, Canvas);
             //new Modal(StackBase);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            adornerLayer = AdornerLayer.GetAdornerLayer(asdf);
+            adornerLayer.Add(new ResizeHandler(asdf));
         }
     }
 }

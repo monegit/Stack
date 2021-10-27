@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Stack.UI.Component;
 
 namespace Stack.Handler.Movement
 {
-    class MovementHandler
+    internal class MovementHandler
     {
-        private Atom atom;
-        private Canvas canvas;
+        private readonly Atom _atom;
+        private readonly Canvas _canvas;
 
         public MovementHandler(Atom target, Canvas canvas)
         {
@@ -22,36 +16,41 @@ namespace Stack.Handler.Movement
             target.MouseLeftButtonUp += MouseUp;
             target.MouseMove += MouseMove;
 
-            this.atom = target;
-            this.canvas = canvas;
+            _atom = target;
+            _canvas = canvas;
         }
 
         #region Events
-        private bool isDrag;
-        private Point point;
-        private Thickness margin;
+        private bool _isDrag;
+        private Point _point;
+        private Thickness _margin;
 
         private void MouseMove(object sender, MouseEventArgs e)
         {
-            if (!isDrag) return;
+            if (!_isDrag) return;
 
-            Point pt = e.GetPosition(canvas);
+            var pt = e.GetPosition(_canvas);
 
-            double moveX = (pt.X - point.X);
-            double moveY = (pt.Y - point.Y);
-            atom.Margin = new Thickness(margin.Left + moveX, margin.Top + moveY, margin.Right, margin.Bottom);
+            var moveX = pt.X - _point.X;
+            var moveY = pt.Y - _point.Y;
+            _atom.Margin = 
+                new Thickness(
+                    _margin.Left + moveX, 
+                    _margin.Top + moveY, 
+                    _margin.Right - moveX, 
+                    _margin.Bottom - moveY);
         }
 
         private void MouseUp(object sender, MouseButtonEventArgs e)
         {
-            isDrag = false;
+            _isDrag = false;
         }
 
         private void MouseDown(object sender, MouseButtonEventArgs e)
         {
-            point = e.GetPosition(canvas);
-            margin = atom.Margin;
-            isDrag = true;
+            _point = e.GetPosition(_canvas);
+            _margin = _atom.Margin;
+            _isDrag = true;
         }
         #endregion
     }
