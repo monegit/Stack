@@ -71,6 +71,12 @@
     <Compile Include="UI\Model\Button.xaml.cs">
       <DependentUpon>Button.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Model\CheckBox.xaml.cs">
+      <DependentUpon>CheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Model\TextBox.xaml.cs">
+      <DependentUpon>TextBox.xaml</DependentUpon>
+    </Compile>
     <Page Include="Main.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -92,6 +98,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Model\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Model\CheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Model\TextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
