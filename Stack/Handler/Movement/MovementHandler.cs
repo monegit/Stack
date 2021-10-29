@@ -1,16 +1,16 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Stack.UI.Component;
+using Stack.UI.Model;
 
 namespace Stack.Handler.Movement
 {
     internal class MovementHandler
     {
-        private readonly Atom _atom;
+        private readonly FrameworkElement _atom;
         private readonly Canvas _canvas;
 
-        public MovementHandler(Atom target, Canvas canvas)
+        public MovementHandler(FrameworkElement target, Canvas canvas)
         {
             target.MouseLeftButtonDown += MouseDown;
             target.MouseLeftButtonUp += MouseUp;
