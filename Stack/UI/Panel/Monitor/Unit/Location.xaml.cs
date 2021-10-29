@@ -1,19 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Stack.UI.Panel.Monitor.Unit
 {
@@ -23,7 +9,7 @@ namespace Stack.UI.Panel.Monitor.Unit
     public partial class Location : UserControl
     {
         public FrameworkElement Target { get; set; }
-        Thickness _thickness = new Thickness();
+        private Thickness _thickness = new Thickness();
 
         #region DependencyProperty
         public static readonly DependencyProperty XProperty = DependencyProperty.Register(
