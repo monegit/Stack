@@ -49,8 +49,6 @@ namespace Stack
 
             adornerLayer = AdornerLayer.GetAdornerLayer(asdf);
             adornerLayer.Remove(adorner);
-            btn.aa.X = btn.Margin.Left;
-            MessageBox.Show(btn.aa.X.ToString());
         }
     }
 }

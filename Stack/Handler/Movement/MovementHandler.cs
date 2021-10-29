@@ -1,7 +1,10 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Stack.UI.Model;
+using Stack.UI.Panel.Monitor;
+using Stack.UI.Panel.Monitor.Unit;
 
 namespace Stack.Handler.Movement
 {
@@ -9,6 +12,8 @@ namespace Stack.Handler.Movement
     {
         private readonly FrameworkElement _atom;
         private readonly Canvas _canvas;
+
+        private readonly Location _location = new Location();
 
         public MovementHandler(FrameworkElement target, Canvas canvas)
         {
@@ -18,6 +23,9 @@ namespace Stack.Handler.Movement
 
             _atom = target;
             _canvas = canvas;
+
+            _location.Target = _atom;
+            Main.Instance.Monitor.Children.Add(_location);
         }
 
         #region Events
@@ -39,11 +47,15 @@ namespace Stack.Handler.Movement
                     _margin.Top + moveY, 
                     _margin.Right - moveX, 
                     _margin.Bottom - moveY);
+
+            _location.X = _atom.Margin.Left;
+            _location.Y = _atom.Margin.Top;
         }
 
         private void MouseUp(object sender, MouseButtonEventArgs e)
         {
             _isDrag = false;
+
         }
 
         private void MouseDown(object sender, MouseButtonEventArgs e)

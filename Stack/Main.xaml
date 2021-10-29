@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Stack"
         xmlns:model="clr-namespace:Stack.UI.Model"
+        xmlns:monitor="clr-namespace:Stack.UI.Panel.Monitor"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" x:Name="Window" Loaded="Window_Loaded">
     <Grid x:Name="StackBase" Background="#FF9E9E9E" >
@@ -48,6 +49,7 @@
             </Grid>
         </Grid>
 
+        <monitor:AttributeMonitor x:Name="Monitor" HorizontalAlignment="Right" VerticalAlignment="Top" />
         <Border CornerRadius="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="20" Width="200" Height="120">
             <Border.Background>
                 <VisualBrush Visual="{Binding ElementName=CanvasBase}" Stretch="Uniform" />
