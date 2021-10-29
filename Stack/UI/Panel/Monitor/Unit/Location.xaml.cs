@@ -23,6 +23,7 @@ namespace Stack.UI.Panel.Monitor.Unit
     public partial class Location : UserControl
     {
         public FrameworkElement Target { get; set; }
+        Thickness _thickness = new Thickness();
 
         #region DependencyProperty
         public static readonly DependencyProperty XProperty = DependencyProperty.Register(
@@ -50,22 +51,41 @@ namespace Stack.UI.Panel.Monitor.Unit
             InitializeComponent();
         }
 
+        private enum VH
+        {
+            Vertical = 0,
+            Horizon
+        }
+
+        private Thickness ConvertThickness(double d, VH vh)
+        {
+
+            switch (vh)
+            {
+                case VH.Horizon:
+                    _thickness.Left = d;
+                    _thickness.Right = -d;
+                    break;
+                case VH.Vertical:
+                    _thickness.Top = d;
+                    _thickness.Bottom = -d;
+                    break;
+                default:
+                    _thickness = new Thickness(0);
+                    break;
+            }
+            
+            return _thickness;
+        }
+
         private void XAttributeChanged(object sender, TextChangedEventArgs e)
         {
-            Target.Margin = new Thickness(
-                X,
-                Target.Margin.Top,
-                -X,
-                Target.Margin.Bottom);
+            Target.Margin = ConvertThickness(X, VH.Horizon);
         }
 
         private void YAttributeChanged(object sender, TextChangedEventArgs e)
         {
-            Target.Margin = new Thickness(
-                Target.Margin.Left,
-                Y,
-                Target.Margin.Right,
-                -Y);
+            Target.Margin = ConvertThickness(Y, VH.Vertical);
         }
     }
 }
