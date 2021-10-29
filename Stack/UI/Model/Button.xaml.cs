@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Stack.Data.Attribute;
 
 namespace Stack.UI.Model
 {
@@ -21,7 +23,7 @@ namespace Stack.UI.Model
     public partial class Button : UserControl
     {
         public event RoutedEventHandler Click;
-        
+
         #region DependencyProperty
         public new static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
             "Content", typeof(string), typeof(Button), new PropertyMetadata(default(string)));
@@ -37,7 +39,7 @@ namespace Stack.UI.Model
         {
             DataContext = this;
             InitializeComponent();
-
+            
         }
         
         private void Click_Event(object sender, RoutedEventArgs e)

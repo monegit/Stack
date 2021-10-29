@@ -26,6 +26,7 @@ namespace Stack
             //new ResizeHandler(asdf);
             new MovementHandler(asdf, Canvas);
             //new Modal(StackBase);
+            
         }
 
         private void Button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -48,7 +49,8 @@ namespace Stack
 
             adornerLayer = AdornerLayer.GetAdornerLayer(asdf);
             adornerLayer.Remove(adorner);
-            MessageBox.Show("dd");
+            btn.aa.X = btn.Margin.Left;
+            MessageBox.Show(btn.aa.X.ToString());
         }
     }
 }
