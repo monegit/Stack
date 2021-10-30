@@ -1,5 +1,4 @@
-﻿using Stack.UI.Panel.Monitor.Unit;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,33 +14,33 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Stack.UI.Panel.Monitor
+namespace Stack.UI.Panel.Monitor.Unit
 {
     /// <summary>
-    /// AttributeMonitor.xaml에 대한 상호 작용 논리
+    /// UnitFrame.xaml에 대한 상호 작용 논리
     /// </summary>
     [ContentProperty(nameof(Children))]
-    public partial class AttributeMonitor : UserControl
+    public partial class UnitFrame : UserControl
     {
         public static readonly DependencyPropertyKey ChildrenProperty = DependencyProperty.RegisterReadOnly(
             nameof(Children),
             typeof(UIElementCollection),
-            typeof(AttributeMonitor),
+            typeof(UnitFrame),
             new PropertyMetadata());
 
         public UIElementCollection Children
         {
             get { return (UIElementCollection)GetValue(ChildrenProperty.DependencyProperty); }
-            private set 
+            private set
             {
                 SetValue(ChildrenProperty, value);
             }
         }
 
-        public AttributeMonitor()
+        public UnitFrame()
         {
             InitializeComponent();
-            Children = Monitor.Children;
+            Children = Frame.Children;
         }
     }
 }

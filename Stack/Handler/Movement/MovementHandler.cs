@@ -13,6 +13,7 @@ namespace Stack.Handler.Movement
         private readonly FrameworkElement _atom;
         private readonly Canvas _canvas;
 
+        // Attributes
         private readonly Location _location = new Location();
 
         public MovementHandler(FrameworkElement target, Canvas canvas)
@@ -25,7 +26,12 @@ namespace Stack.Handler.Movement
             _canvas = canvas;
 
             _location.Target = _atom;
-            Main.Instance.Monitor.Children.Add(_location);
+
+            var a = new UnitFrame();
+            a.Children.Add(_location);
+
+            //Main.Instance.Monitor.Children.Add(_location);
+            Main.Instance.Monitor.Children.Add(a);
         }
 
         #region Events
@@ -55,7 +61,6 @@ namespace Stack.Handler.Movement
         private void MouseUp(object sender, MouseButtonEventArgs e)
         {
             _isDrag = false;
-
         }
 
         private void MouseDown(object sender, MouseButtonEventArgs e)

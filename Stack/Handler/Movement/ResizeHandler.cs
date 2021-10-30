@@ -170,7 +170,6 @@ namespace Stack.Handler.Movement
                     element.Margin.Top, 
                     element.Margin.Right - (e.HorizontalChange / 2), 
                     element.Margin.Bottom);
-            Debug.WriteLine(e.HorizontalChange);
             element.Height = Math.Max(e.VerticalChange + element.Height, thumb.DesiredSize.Height);
         }
 
