@@ -14,8 +14,6 @@ namespace Stack
     {
         private static Main _main;
         internal static Main Instance { get => _main; }
-        private AdornerLayer adornerLayer;
-        Adorner adorner;
         
         public Main()
         {
@@ -24,9 +22,8 @@ namespace Stack
             InitializeComponent();
 
             //new ResizeHandler(asdf);
-            new MovementHandler(asdf, Canvas);
             //new Modal(StackBase);
-            
+
         }
 
         private void Button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -35,9 +32,8 @@ namespace Stack
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            adornerLayer = AdornerLayer.GetAdornerLayer(asdf);
-            adornerLayer.Add(new ResizeHandler(asdf));
-            adorner = adornerLayer.GetAdorners(asdf)[0];
+            new MovementHandler(asdf, Canvas);
+            new MovementHandler(aaa, Canvas);
         }
 
         private void Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -46,9 +42,9 @@ namespace Stack
 
         private void Button_OnClick(object sender, RoutedEventArgs e)
         {
-
+/*
             adornerLayer = AdornerLayer.GetAdornerLayer(asdf);
-            adornerLayer.Remove(adorner);
+            adornerLayer.Remove(adorner);*/
         }
     }
 }

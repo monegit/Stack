@@ -45,6 +45,7 @@
                     <model:TextBox Width="100" Height="100" Margin="150" FontSize="10" />
                     <model:CheckBox Margin="10" />
                     <model:Image x:Name="asdf" Width="100" Height="100" />
+                    <model:Image x:Name="aaa" Width="100" Height="100" />
                 </Canvas>
             </Grid>
         </Grid>

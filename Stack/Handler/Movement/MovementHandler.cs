@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
 using Stack.UI.Model;
 using Stack.UI.Panel.Monitor;
@@ -12,9 +13,14 @@ namespace Stack.Handler.Movement
     {
         private readonly FrameworkElement _atom;
         private readonly Canvas _canvas;
+        UnitFrame a = new UnitFrame();
+
 
         // Attributes
         private readonly Location _location = new Location();
+
+        private AdornerLayer adornerLayer;
+        Adorner adorner;
 
         public MovementHandler(FrameworkElement target, Canvas canvas)
         {
@@ -27,11 +33,9 @@ namespace Stack.Handler.Movement
 
             _location.Target = _atom;
 
-            var a = new UnitFrame();
-            a.Children.Add(_location);
-
-            //Main.Instance.Monitor.Children.Add(_location);
-            Main.Instance.Monitor.Children.Add(a);
+            adornerLayer = AdornerLayer.GetAdornerLayer(_atom);
+            adornerLayer.Add(new ResizeHandler(_atom));
+            adorner = adornerLayer.GetAdorners(_atom)[0];
         }
 
         #region Events
@@ -68,6 +72,12 @@ namespace Stack.Handler.Movement
             _point = e.GetPosition(_canvas);
             _margin = _atom.Margin;
             _isDrag = true;
+
+            Main.Instance.Monitor.Children.Clear();
+            a.Children.Clear();
+            a.Children.Add(_location);
+            
+            Main.Instance.Monitor.Children.Add(a);
         }
         #endregion
     }
