@@ -60,6 +60,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\Attribute\Common.cs" />
+    <Compile Include="Handler\Movement\AttributeHandler.cs" />
     <Compile Include="Handler\Movement\MovementHandler.cs" />
     <Compile Include="Handler\Movement\ResizeHandler.cs" />
     <Compile Include="UI\Model\Image.xaml.cs">

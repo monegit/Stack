@@ -3,6 +3,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Shapes;
 using Stack.UI.Model;
 using Stack.UI.Panel.Monitor;
 using Stack.UI.Panel.Monitor.Unit;
@@ -73,11 +75,8 @@ namespace Stack.Handler.Movement
             _margin = _atom.Margin;
             _isDrag = true;
 
-            Main.Instance.Monitor.Children.Clear();
-            a.Children.Clear();
-            a.Children.Add(_location);
-            
-            Main.Instance.Monitor.Children.Add(a);
+            var units = new FrameworkElement[] { _location, aa };
+            new AttributeHandler(units);
         }
         #endregion
     }
