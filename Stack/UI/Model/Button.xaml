@@ -63,7 +63,12 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <Button x:Name="ButtonElement" Style="{DynamicResource ButtonStyle}" Click="Click_Event" Content="{Binding Content, RelativeSource={RelativeSource AncestorType=UserControl}}">
+    <Border Background="#FFDDDDDD" CornerRadius="10">
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Content, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+    </Border>
+    <!--
+    <Button x:Name="ButtonElement" Style="{DynamicResource ButtonStyle}" Click="Click_Event" >
         
     </Button>
+    -->
 </UserControl>

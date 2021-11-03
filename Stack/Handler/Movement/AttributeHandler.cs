@@ -17,7 +17,6 @@ namespace Stack.Handler.Movement
         public AttributeHandler(FrameworkElement[] attributeUnits)
         {
             Main.Instance.Monitor.Children.Clear();
-
             _unitFrame.Children.Clear();
 
             foreach (var unit in attributeUnits)

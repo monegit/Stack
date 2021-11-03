@@ -34,6 +34,7 @@ namespace Stack
         {
             new MovementHandler(asdf, Canvas);
             new MovementHandler(aaa, Canvas);
+            new MovementHandler(btn, Canvas);
         }
 
         private void Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
