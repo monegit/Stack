@@ -1,7 +1,13 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Shapes;
 using Stack.UI.Model;
+using Stack.UI.Panel.Monitor;
+using Stack.UI.Panel.Monitor.Unit;
 
 namespace Stack.Handler.Movement
 {
@@ -9,6 +15,14 @@ namespace Stack.Handler.Movement
     {
         private readonly FrameworkElement _atom;
         private readonly Canvas _canvas;
+        UnitFrame a = new UnitFrame();
+
+
+        // Attributes
+        private readonly Location _location = new Location();
+
+        private AdornerLayer adornerLayer;
+        Adorner adorner;
 
         public MovementHandler(FrameworkElement target, Canvas canvas)
         {
@@ -18,6 +32,12 @@ namespace Stack.Handler.Movement
 
             _atom = target;
             _canvas = canvas;
+
+            _location.Target = _atom;
+
+            adornerLayer = AdornerLayer.GetAdornerLayer(_atom);
+            adornerLayer.Add(new ResizeHandler(_atom));
+            adorner = adornerLayer.GetAdorners(_atom)[0];
         }
 
         #region Events
@@ -39,6 +59,9 @@ namespace Stack.Handler.Movement
                     _margin.Top + moveY, 
                     _margin.Right - moveX, 
                     _margin.Bottom - moveY);
+
+            _location.X = _atom.Margin.Left;
+            _location.Y = _atom.Margin.Top;
         }
 
         private void MouseUp(object sender, MouseButtonEventArgs e)
@@ -51,6 +74,15 @@ namespace Stack.Handler.Movement
             _point = e.GetPosition(_canvas);
             _margin = _atom.Margin;
             _isDrag = true;
+
+            var aa = new Rectangle()
+            {
+                Width = 100,
+                Height = 100,
+                Fill = Brushes.Red
+            };
+            var units = new FrameworkElement[] { _location, aa };
+            new AttributeHandler(units);
         }
         #endregion
     }

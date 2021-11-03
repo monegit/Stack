@@ -39,7 +39,6 @@ namespace Stack.UI.Model
         {
             DataContext = this;
             InitializeComponent();
-            
         }
         
         private void Click_Event(object sender, RoutedEventArgs e)

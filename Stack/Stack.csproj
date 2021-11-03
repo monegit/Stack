@@ -60,6 +60,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\Attribute\Common.cs" />
+    <Compile Include="Handler\Movement\AttributeHandler.cs" />
     <Compile Include="Handler\Movement\MovementHandler.cs" />
     <Compile Include="Handler\Movement\ResizeHandler.cs" />
     <Compile Include="UI\Model\Image.xaml.cs">
@@ -77,6 +78,15 @@
     </Compile>
     <Compile Include="UI\Model\TextBox.xaml.cs">
       <DependentUpon>TextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Panel\Monitor\AttributeMonitor.xaml.cs">
+      <DependentUpon>AttributeMonitor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Panel\Monitor\Unit\Location.xaml.cs">
+      <DependentUpon>Location.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Panel\Monitor\Unit\UnitFrame.xaml.cs">
+      <DependentUpon>UnitFrame.xaml</DependentUpon>
     </Compile>
     <Page Include="Main.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -110,6 +120,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\Panel\Monitor\AttributeMonitor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Panel\Monitor\Unit\Location.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Panel\Monitor\Unit\UnitFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -138,8 +160,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\Panel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
