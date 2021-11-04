@@ -1,7 +1,9 @@
 ﻿using Microsoft.Win32;
+using Stack.Data.Image;
 using Stack.UI.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +37,7 @@ namespace Stack.Data.Export
                 var width = doc.CreateAttribute("Width");
                 var height = doc.CreateAttribute("Height");
                 var text = doc.CreateAttribute("Text");
+                var source = doc.CreateAttribute("Source");
 
                 x.Value = unit.Margin.Left.ToString();
                 y.Value = unit.Margin.Top.ToString();
@@ -49,59 +52,30 @@ namespace Stack.Data.Export
                 switch (unit.GetType().Name)
                 {
                     case "Button":
-                        text.Value = unit.GetType().Name.ToString();
-                        atom.Attributes.Append(text);
+                        var button = (Button)unit;
+                        if (button.Content != null)
+                        {
+                            text.Value = button.Content;
+                            atom.Attributes.Append(text);
+                        }
+                        break;
+                    case "Image":
+                        var image = (UI.Model.Image)unit;
+                        if (image.ImagePath != null)
+                        {
+                            source.Value = Image.Convert.PathToBase64(image.ImagePath);
+                            atom.Attributes.Append(source);
+                        }
                         break;
                 }
 
                 root.AppendChild(atom);
-                //   Debug.WriteLine($"type: {unit.GetType().Name}, top: {unit.Margin.Top}, left: {unit.Margin.Left}");
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Stack file (*.st)|*.st";
+                if (saveFileDialog.ShowDialog() == true)
+                    doc.Save(saveFileDialog.FileName);
             }
-
-            /*            XmlNode root = xdoc.CreateElement("Employees");
-                        xdoc.AppendChild(root);
-
-                        // Employee#1001
-                        XmlNode emp1 = xdoc.CreateElement("Employee");
-                        XmlAttribute attr = xdoc.CreateAttribute("Id");
-                        attr.Value = "1001";
-                        emp1.Attributes.Append(attr);
-
-                        XmlNode name1 = xdoc.CreateElement("Name");
-                        name1.InnerText = "Tim";
-                        emp1.AppendChild(name1);
-
-                        XmlNode dept1 = xdoc.CreateElement("Dept");
-                        dept1.InnerText = "Sales";
-                        emp1.AppendChild(dept1);
-
-                        root.AppendChild(emp1);
-
-                        // Employee#1002
-                        var emp2 = xdoc.CreateElement("Employee");
-                        var attr2 = xdoc.CreateAttribute("Id");
-                        attr2.Value = "1002";
-                        emp2.Attributes.Append(attr2);
-
-                        var name2 = xdoc.CreateElement("Name");
-                        name2.InnerText = "John";
-                        emp2.AppendChild(name2);
-
-                        XmlNode dept2 = xdoc.CreateElement("Dept");
-                        dept2.InnerText = "HR";
-                        emp2.AppendChild(dept2);
-
-                        root.AppendChild(emp2);
-            */
-
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Stack file (*.st)|*.st";
-            if (saveFileDialog.ShowDialog() == true)
-                doc.Save(saveFileDialog.FileName);
-            //File.WriteAllText(saveFileDialog.FileName, "ddd");
-
-            // XML 파일 저장
-            //xdoc.Save(@"C:\Temp\Emp.xml");
         }
     }
 }

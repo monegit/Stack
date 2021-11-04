@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Stack.UI.Model"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#4C555555" Drop="img1_Drop_1" AllowDrop="True">
+    <Grid Background="#4C555555" Drop="ImageDropEvent" AllowDrop="True">
         <Image Name="img1" VerticalAlignment="Center" HorizontalAlignment="Center" />
     </Grid>
 </UserControl>
