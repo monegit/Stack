@@ -31,6 +31,8 @@ namespace Stack.Handler.Movement
             target.MouseMove += MouseMove;
 
             _atom = target;
+            _atom.Width = 100;
+            _atom.Height = 100;
             _canvas = canvas;
 
             _location.Target = _atom;

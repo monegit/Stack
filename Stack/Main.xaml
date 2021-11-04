@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Stack"
         xmlns:model="clr-namespace:Stack.UI.Model"
         xmlns:monitor="clr-namespace:Stack.UI.Panel.Monitor"
+        xmlns:panel="clr-namespace:Stack.UI.Panel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" x:Name="Window" Loaded="Window_Loaded" MinWidth="1000" MinHeight="600">
     <Grid x:Name="StackBase" Background="#FF9E9E9E" >
@@ -50,6 +51,7 @@
             </Grid>
         </Grid>
 
+        <panel:ToolBox x:Name="ToolBox" HorizontalAlignment="Left" />
         <monitor:AttributeMonitor x:Name="Monitor" HorizontalAlignment="Right" VerticalAlignment="Top" />
         <Border CornerRadius="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="20" Width="200" Height="120">
             <Border.Background>

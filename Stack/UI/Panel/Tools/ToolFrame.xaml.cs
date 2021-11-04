@@ -14,34 +14,30 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Stack.UI.Panel.Monitor.Unit
+namespace Stack.UI.Panel.Tools
 {
     /// <summary>
-    /// UnitFrame.xaml에 대한 상호 작용 논리
+    /// ToolFrame.xaml에 대한 상호 작용 논리
     /// </summary>
     [ContentProperty(nameof(Children))]
-    public partial class UnitFrame : UserControl
+    public partial class ToolFrame : UserControl
     {
-        public static readonly DependencyPropertyKey ChildrenProperty = DependencyProperty.RegisterReadOnly(
+        public static readonly DependencyPropertyKey ChildProperty = DependencyProperty.RegisterReadOnly(
             nameof(Children),
             typeof(UIElementCollection),
-            typeof(UnitFrame),
+            typeof(ToolFrame),
             new PropertyMetadata());
 
         public UIElementCollection Children
         {
-            get => (UIElementCollection)GetValue(ChildrenProperty.DependencyProperty);
-            private set => SetValue(ChildrenProperty, value);
+            get => (UIElementCollection)GetValue(ChildProperty.DependencyProperty);
+            set => SetValue(ChildProperty, value);
         }
 
-        public UnitFrame()
+        public ToolFrame()
         {
             InitializeComponent();
             Children = Frame.Children;
-        }
-        
-        private void UserControl_Loaded_1(object sender, RoutedEventArgs e)
-        {
         }
     }
 }

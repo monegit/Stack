@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Stack.UI.Panel.Tools;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,18 +16,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Stack.UI.Panel.Monitor.Unit
+namespace Stack.UI.Panel
 {
     /// <summary>
-    /// UnitFrame.xaml에 대한 상호 작용 논리
+    /// ToolBox.xaml에 대한 상호 작용 논리
     /// </summary>
     [ContentProperty(nameof(Children))]
-    public partial class UnitFrame : UserControl
+    public partial class ToolBox : UserControl
     {
         public static readonly DependencyPropertyKey ChildrenProperty = DependencyProperty.RegisterReadOnly(
             nameof(Children),
             typeof(UIElementCollection),
-            typeof(UnitFrame),
+            typeof(ToolBox),
             new PropertyMetadata());
 
         public UIElementCollection Children
@@ -34,14 +36,11 @@ namespace Stack.UI.Panel.Monitor.Unit
             private set => SetValue(ChildrenProperty, value);
         }
 
-        public UnitFrame()
+
+        public ToolBox()
         {
             InitializeComponent();
-            Children = Frame.Children;
-        }
-        
-        private void UserControl_Loaded_1(object sender, RoutedEventArgs e)
-        {
+            Children = Box.Children;
         }
     }
 }

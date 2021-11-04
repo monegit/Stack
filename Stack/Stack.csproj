@@ -63,6 +63,7 @@
     <Compile Include="Handler\Movement\AttributeHandler.cs" />
     <Compile Include="Handler\Movement\MovementHandler.cs" />
     <Compile Include="Handler\Movement\ResizeHandler.cs" />
+    <Compile Include="Handler\Tool\AttachHandler.cs" />
     <Compile Include="UI\Model\Image.xaml.cs">
       <DependentUpon>Image.xaml</DependentUpon>
     </Compile>
@@ -87,6 +88,12 @@
     </Compile>
     <Compile Include="UI\Panel\Monitor\Unit\UnitFrame.xaml.cs">
       <DependentUpon>UnitFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Panel\ToolBox.xaml.cs">
+      <DependentUpon>ToolBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Panel\Tools\ToolFrame.xaml.cs">
+      <DependentUpon>ToolFrame.xaml</DependentUpon>
     </Compile>
     <Page Include="Main.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -132,6 +139,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\Panel\ToolBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Panel\Tools\ToolFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -160,6 +175,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Event\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
