@@ -42,7 +42,7 @@
 
             <Grid ClipToBounds="True">
                 <Canvas x:Name="Canvas">
-                    <model:Button x:Name="btn" Width="100" Height="100" Margin="100" MouseLeftButtonDown="Button_MouseLeftButtonDown" PreviewMouseLeftButtonDown="Button_PreviewMouseLeftButtonDown" Click="Button_OnClick" Content="aa" FontSize="22"  />
+                    <model:Button x:Name="btn" Width="100" Height="100" Margin="100" MouseLeftButtonDown="Button_MouseLeftButtonDown" PreviewMouseLeftButtonDown="Button_PreviewMouseLeftButtonDown" Content="aa" FontSize="22"  />
                     <model:TextBox Width="100" Height="100" Margin="150" FontSize="10" />
                     <model:CheckBox Margin="10" />
                     <model:Image x:Name="asdf" Width="100" Height="100" />
@@ -51,6 +51,7 @@
             </Grid>
         </Grid>
 
+        <Button Width="100" Height="100" Margin="50" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_Click" />
         <panel:ToolBox x:Name="ToolBox" HorizontalAlignment="Left" />
         <monitor:AttributeMonitor x:Name="Monitor" HorizontalAlignment="Right" VerticalAlignment="Top" />
         <Border CornerRadius="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="20" Width="200" Height="120">

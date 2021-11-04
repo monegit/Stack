@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Stack.Data.Attribute;
+using System.Diagnostics;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Stack.UI.Panel.Monitor.Unit
@@ -45,7 +47,6 @@ namespace Stack.UI.Panel.Monitor.Unit
 
         private Thickness ConvertThickness(double d, VH vh)
         {
-
             switch (vh)
             {
                 case VH.Horizon:
