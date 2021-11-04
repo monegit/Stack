@@ -30,6 +30,8 @@ namespace Stack.UI.Model
         public new static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
             "Content", typeof(string), typeof(Button), new PropertyMetadata(default(string)));
 
+        public static string asdf { get; set; }
+
         public new string Content
         {
             get => (string)GetValue(ContentProperty);

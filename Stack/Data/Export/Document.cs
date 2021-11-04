@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Stack.UI.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,7 @@ namespace Stack.Data.Export
                 var y = doc.CreateAttribute("Y");
                 var width = doc.CreateAttribute("Width");
                 var height = doc.CreateAttribute("Height");
+                var text = doc.CreateAttribute("Text");
 
                 x.Value = unit.Margin.Left.ToString();
                 y.Value = unit.Margin.Top.ToString();
@@ -43,6 +45,14 @@ namespace Stack.Data.Export
                 atom.Attributes.Append(y);
                 atom.Attributes.Append(width);
                 atom.Attributes.Append(height);
+
+                switch (unit.GetType().Name)
+                {
+                    case "Button":
+                        text.Value = unit.GetType().Name.ToString();
+                        atom.Attributes.Append(text);
+                        break;
+                }
 
                 root.AppendChild(atom);
                 //   Debug.WriteLine($"type: {unit.GetType().Name}, top: {unit.Margin.Top}, left: {unit.Margin.Left}");
