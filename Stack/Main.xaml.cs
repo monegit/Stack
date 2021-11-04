@@ -5,7 +5,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Stack.Data.Export;
 using Stack.Handler.Movement;
+using Stack.Handler.Tool;
 using Stack.UI.Modal;
+using Stack.UI.Model;
+using Stack.UI.Panel.Tools;
 
 namespace Stack
 {
@@ -37,7 +40,11 @@ namespace Stack
             new MovementHandler(asdf, Canvas);
             new MovementHandler(aaa, Canvas);
             new MovementHandler(btn, Canvas);
+
+
+            AttachHandler.AttachImage(Canvas);
         }
+
 
         private void Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
