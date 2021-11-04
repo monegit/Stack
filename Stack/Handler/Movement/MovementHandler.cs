@@ -5,6 +5,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using Stack.Data.Attribute;
 using Stack.UI.Model;
 using Stack.UI.Panel.Monitor;
 using Stack.UI.Panel.Monitor.Unit;
@@ -19,8 +20,8 @@ namespace Stack.Handler.Movement
 
 
         // Attributes
-        private readonly Location _location = new Location();
-
+        public Location _location = new Location();
+        //privete
         private AdornerLayer adornerLayer;
         Adorner adorner;
 
@@ -83,6 +84,13 @@ namespace Stack.Handler.Movement
             };
             var units = new FrameworkElement[] { _location, aa };
             new AttributeHandler(units);
+
+            switch (e.Source.GetType().Name)
+            {
+                case "Button":
+                    Debug.WriteLine("button");
+                    break;
+            }
         }
         #endregion
     }

@@ -1,7 +1,9 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using Stack.Data.Export;
 using Stack.Handler.Movement;
 using Stack.UI.Modal;
 
@@ -46,6 +48,19 @@ namespace Stack
 /*
             adornerLayer = AdornerLayer.GetAdornerLayer(asdf);
             adornerLayer.Remove(adorner);*/
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // 저장버튼
+
+            foreach(FrameworkElement unit in Canvas.Children)
+            {
+                Debug.WriteLine($"type: {unit.GetType().Name}, top: {unit.Margin.Top}, left: {unit.Margin.Left}");
+            }
+            Debug.WriteLine("======");
+
+            new Export(Canvas);
         }
     }
 }

@@ -9,9 +9,9 @@ namespace Stack.Data.Attribute
 {
     public class Common
     {
-        public double X { get; set; }
-        public double Y { get; set; }
+        public static double X { get; set; }
+        public static double Y { get; set; }
 
-        public string Name { get; set; }
+        public static string Name { get; set; }
     }
 }
