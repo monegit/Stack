@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -36,11 +36,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.5.0.2\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,10 +64,12 @@
     <Compile Include="Data\Export\Document.cs" />
     <Compile Include="Data\Export\Export.cs" />
     <Compile Include="Data\Import\Document.cs" />
+    <Compile Include="Data\Image\Convert.cs" />
     <Compile Include="Handler\Movement\AtomFocusHandler.cs" />
     <Compile Include="Handler\Movement\AttributeHandler.cs" />
     <Compile Include="Handler\Movement\MovementHandler.cs" />
     <Compile Include="Handler\Movement\ResizeHandler.cs" />
+    <Compile Include="Handler\Tool\AttachHandler.cs" />
     <Compile Include="UI\Model\Image.xaml.cs">
       <DependentUpon>Image.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,12 @@
     </Compile>
     <Compile Include="UI\Panel\Monitor\Unit\UnitFrame.xaml.cs">
       <DependentUpon>UnitFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Panel\ToolBox.xaml.cs">
+      <DependentUpon>ToolBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Panel\Tools\ToolFrame.xaml.cs">
+      <DependentUpon>ToolFrame.xaml</DependentUpon>
     </Compile>
     <Page Include="Main.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +145,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\Panel\ToolBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Panel\Tools\ToolFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -164,6 +181,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Event\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

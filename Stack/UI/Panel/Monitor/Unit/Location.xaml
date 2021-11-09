@@ -53,20 +53,36 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
         <Grid>
-            <TextBox
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Content="c" />
+            <Button Grid.Column="1" Content="l"/>
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <TextBox
                  Text="{Binding X, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  TextChanged="XAttributeChanged" Style="{DynamicResource TextBoxStyle}" />
-        </Grid>
+            </Grid>
 
-        <Grid Grid.Column="1">
-            <TextBox
+            <Grid Grid.Column="1">
+                <TextBox
                  Text="{Binding Y, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                  TextChanged="YAttributeChanged" Style="{DynamicResource TextBoxStyle}" />
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>

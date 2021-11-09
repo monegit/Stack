@@ -1,7 +1,9 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
+using Stack.Data.Image;
 using Stack.UI.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +43,7 @@ namespace Stack.Data.Export
                 var width = doc.CreateAttribute("Width");
                 var height = doc.CreateAttribute("Height");
                 var text = doc.CreateAttribute("Text");
+                var source = doc.CreateAttribute("Source");
 
                 x.Value = unit.Margin.Left.ToString();
                 y.Value = unit.Margin.Top.ToString();
@@ -55,16 +58,29 @@ namespace Stack.Data.Export
                 switch (unit.GetType().Name)
                 {
                     case "Button":
-                        text.Value = unit.GetType().Name.ToString();
-                        atom.Attributes.Append(text);
+                        var button = (Button)unit;
+                        if (button.Content != null)
+                        {
+                            text.Value = button.Content;
+                            atom.Attributes.Append(text);
+                        }
+                        break;
+                    case "Image":
+                        var image = (UI.Model.Image)unit;
+                        if (image.ImagePath != null)
+                        {
+                            source.Value = Image.Convert.PathToBase64(image.ImagePath);
+                            atom.Attributes.Append(source);
+                        }
                         break;
                 }
 
                 root.AppendChild(atom);
-                //   Debug.WriteLine($"type: {unit.GetType().Name}, top: {unit.Margin.Top}, left: {unit.Margin.Left}");
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Stack file (*.st)|*.st";
+                if (saveFileDialog.ShowDialog() == true)
+                    doc.Save(saveFileDialog.FileName);
             }
-
-            doc.Save(saveFileDialog.FileName);
         }
     }
 }
