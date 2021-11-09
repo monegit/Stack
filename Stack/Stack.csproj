@@ -62,6 +62,7 @@
     <Compile Include="Data\Attribute\Common.cs" />
     <Compile Include="Data\Export\Document.cs" />
     <Compile Include="Data\Export\Export.cs" />
+    <Compile Include="Data\Import\Document.cs" />
     <Compile Include="Handler\Movement\AtomFocusHandler.cs" />
     <Compile Include="Handler\Movement\AttributeHandler.cs" />
     <Compile Include="Handler\Movement\MovementHandler.cs" />

@@ -24,13 +24,9 @@ namespace Stack.UI.Model
     /// </summary>
     public partial class Button : UserControl
     {
-        public event RoutedEventHandler Click;
-
         #region DependencyProperty
         public new static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
             "Content", typeof(string), typeof(Button), new PropertyMetadata(default(string)));
-
-        public static string asdf { get; set; }
 
         public new string Content
         {
