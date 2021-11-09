@@ -45,16 +45,11 @@ namespace Stack.Handler.Movement
 
         private void KeyDown(object sender, KeyEventArgs e)
         {
-            Debug.WriteLine("dd");
-
             switch (e.Key)
             {
                 case Key.Delete:
                 case Key.Back:
-                case Key.Left:
-                case Key.A:
                     _canvas.Children.Remove(Target);
-                    Debug.WriteLine("dd");
                     break;
             }
         }
