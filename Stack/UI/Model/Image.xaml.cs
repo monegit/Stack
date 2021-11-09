@@ -21,7 +21,7 @@ namespace Stack.UI.Model
         {
             var path = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             ImagePath = path[0];
-            img1.Source = new BitmapImage(new Uri(ImagePath, UriKind.Absolute));
+            image.Source = new BitmapImage(new Uri(ImagePath, UriKind.Absolute));
         }
     }
 }

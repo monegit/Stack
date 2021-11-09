@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 using System.Xml;
 
 namespace Stack.Data.Import
@@ -129,6 +130,7 @@ namespace Stack.Data.Import
                                         image.Height = AtoI(att.Value);
                                         break;
                                     case "Source":
+                                        image.image.Source = Image.Convert.Base64ToImage(att.Value); //  Image.Convert.Base64ToImage(att.Value);
                                         break;
                                 }
                             }

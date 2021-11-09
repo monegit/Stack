@@ -76,11 +76,10 @@ namespace Stack.Data.Export
                 }
 
                 root.AppendChild(atom);
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "Stack file (*.st)|*.st";
-                if (saveFileDialog.ShowDialog() == true)
-                    doc.Save(saveFileDialog.FileName);
+
             }
+
+            doc.Save(saveFileDialog.FileName);
         }
     }
 }
