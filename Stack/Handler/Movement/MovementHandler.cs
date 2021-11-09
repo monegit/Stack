@@ -78,13 +78,7 @@ namespace Stack.Handler.Movement
             _margin = _atom.Margin;
             _isDrag = true;
 
-            var aa = new Rectangle()
-            {
-                Width = 100,
-                Height = 100,
-                Fill = Brushes.Red
-            };
-            var units = new FrameworkElement[] { _location, aa };
+            var units = new FrameworkElement[] { _location };
             new AttributeHandler(units);
 
             switch (e.Source.GetType().Name)

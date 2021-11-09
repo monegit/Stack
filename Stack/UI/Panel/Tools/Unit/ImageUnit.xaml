@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="Stack.UI.Panel.Tools.Unit.ImageUnit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Stack.UI.Panel.Tools.Unit"
+             mc:Ignorable="d" Margin="5" Height="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualWidth}" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border Background="#333333" CornerRadius="10">
+        <Border Margin="2" CornerRadius="7" Background="#FFF3F3F3" RenderTransformOrigin="0.5,0.5" ClipToBounds="True" Padding="3">
+            <Image Source="/Stack;component/UI/Resource/Icon/Image.png" />
+        </Border>
+    </Border>
+</UserControl>

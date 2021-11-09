@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -101,6 +101,12 @@
     <Compile Include="UI\Panel\Tools\ToolFrame.xaml.cs">
       <DependentUpon>ToolFrame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Panel\Tools\Unit\ImageUnit.xaml.cs">
+      <DependentUpon>ImageUnit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Panel\Tools\Unit\SettingUnit.xaml.cs">
+      <DependentUpon>SettingUnit.xaml</DependentUpon>
+    </Compile>
     <Page Include="Main.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -153,6 +159,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\Panel\Tools\Unit\ImageUnit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Panel\Tools\Unit\SettingUnit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -183,6 +197,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Event\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UI\Resource\Icon\Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UI\Resource\Icon\Setting.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

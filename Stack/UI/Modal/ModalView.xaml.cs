@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -28,6 +29,12 @@ namespace Stack.UI.Modal
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             new Modal(Main.Instance.StackBase);
+        }
+
+        private void grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var storyboard = (Storyboard)(FindResource("PanelCloseEvent"));
+            storyboard.Begin();
         }
     }
 }

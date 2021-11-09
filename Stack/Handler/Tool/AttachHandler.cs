@@ -18,15 +18,7 @@ namespace Stack.Handler.Tool
         #region
         public static void AttachImage(Canvas canvas)
         {
-            var r = new Rectangle()
-            {
-                Width = 10,
-                Height = 10,
-                Fill = Brushes.Red
-            };
-
             var q = new ToolFrame();
-            q.Children.Add(r);
             q.MouseLeftButtonDown += AttachHandler.ImageEvent;
             Main.Instance.ToolBox.Children.Add(q);
         }

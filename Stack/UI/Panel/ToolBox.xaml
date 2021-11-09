@@ -4,11 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Stack.UI.Panel"
+             xmlns:unit="clr-namespace:Stack.UI.Panel.Tools.Unit"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Border CornerRadius="10" Width="45" Background="#FFF3F3F3" Margin="10">
-        <StackPanel x:Name="Box">
-            
-        </StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height=".3*" />
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="Box">
+                <unit:ImageUnit MouseLeftButtonDown="ImageUnit_MouseLeftButtonDown" />
+            </StackPanel>
+            <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+                <unit:SettingUnit MouseLeftButtonDown="SettingUnit_MouseLeftButtonDown" />
+            </StackPanel>
+        </Grid>
     </Border>
 </UserControl>

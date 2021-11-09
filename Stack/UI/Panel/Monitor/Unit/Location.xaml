@@ -57,16 +57,7 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Button Content="c" />
-            <Button Grid.Column="1" Content="l"/>
-        </Grid>
-        
+        <TextBlock Text="Location" Foreground="White" FontWeight="Bold" />
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
