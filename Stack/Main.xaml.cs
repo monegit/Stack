@@ -1,14 +1,15 @@
-﻿using System.Diagnostics;
+using System;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Shapes;
 using Stack.Data.Export;
+using Stack.Data.Import;
 using Stack.Handler.Movement;
-using Stack.Handler.Tool;
 using Stack.UI.Modal;
-using Stack.UI.Model;
-using Stack.UI.Panel.Tools;
+
 
 namespace Stack
 {
@@ -28,7 +29,6 @@ namespace Stack
 
             //new ResizeHandler(asdf);
             //new Modal(StackBase);
-
         }
 
         private void Button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -40,11 +40,7 @@ namespace Stack
             new MovementHandler(asdf, Canvas);
             new MovementHandler(aaa, Canvas);
             new MovementHandler(btn, Canvas);
-
-
-            AttachHandler.AttachImage(Canvas);
         }
-
 
         private void Button_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -60,7 +56,6 @@ namespace Stack
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // 저장버튼
-
             foreach(FrameworkElement unit in Canvas.Children)
             {
                 Debug.WriteLine($"type: {unit.GetType().Name}, top: {unit.Margin.Top}, left: {unit.Margin.Left}");
@@ -68,6 +63,14 @@ namespace Stack
             Debug.WriteLine("======");
 
             new Export(Canvas);
+        }
+        
+        private void Drop(object sender, DragEventArgs e)
+        {
+            var a = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            if (a[0].Contains(".st"))
+                new Data.Import.Document(a[0]);
+            //img1.Source = new BitmapImage(new Uri(a[0], UriKind.Absolute));
         }
     }
 }

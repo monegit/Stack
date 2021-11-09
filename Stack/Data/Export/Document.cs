@@ -1,4 +1,4 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
 using Stack.Data.Image;
 using Stack.UI.Model;
 using System;
@@ -14,11 +14,17 @@ namespace Stack.Data.Export
 {
     class Document
     {
-        public XmlDocument xdoc = new XmlDocument();
         public XmlDocument doc = new XmlDocument();
 
         public Document()
         {
+            var saveFileDialog = new SaveFileDialog
+            {
+                Filter = "Stack file (*.st)|*.st"
+            };
+
+            if (saveFileDialog.ShowDialog() != true) return;
+
             var root = doc.CreateElement("StackInfo");
             var canvasWidth = doc.CreateAttribute("Width");
             var canvasHeight = doc.CreateAttribute("Height");
@@ -70,7 +76,6 @@ namespace Stack.Data.Export
                 }
 
                 root.AppendChild(atom);
-
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "Stack file (*.st)|*.st";
                 if (saveFileDialog.ShowDialog() == true)
