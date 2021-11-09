@@ -53,7 +53,8 @@ namespace Stack.UI.Panel
 
         private void SettingUnit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            new Modal.Modal(Main.Instance.StackBase);
+            var a = new UI.Modal.ModalView(Main.Instance.StackBase);
+            a.Panel.Children.Add(new Panel.Modal.SettingPanel());
         }
     }
 }

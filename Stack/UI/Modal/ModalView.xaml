@@ -35,6 +35,18 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Grid x:Name="grid" ZIndex="1" Background="#4C000000" Opacity="0" MouseDown="grid_MouseDown">
-        <Button Width="100" Height="100" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="100" Click="Button_Click" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".5*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height=".5*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".3*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width=".3*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1" x:Name="Panel">
+            <Button Width="100" Height="100" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="100" />
+        </Grid>
     </Grid>
 </UserControl>

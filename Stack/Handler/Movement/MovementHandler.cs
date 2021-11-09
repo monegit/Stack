@@ -16,8 +16,7 @@ namespace Stack.Handler.Movement
     {
         private readonly FrameworkElement _atom;
         private readonly Canvas _canvas;
-        UnitFrame a = new UnitFrame();
-
+        private static FrameworkElement Target;
 
         // Attributes
         public Location _location = new Location();
@@ -30,6 +29,7 @@ namespace Stack.Handler.Movement
             target.MouseLeftButtonDown += MouseDown;
             target.MouseLeftButtonUp += MouseUp;
             target.MouseMove += MouseMove;
+            Main.Instance.PreviewKeyDown += KeyDown;
 
             _atom = target;
             _atom.Width = 100;
@@ -41,6 +41,22 @@ namespace Stack.Handler.Movement
             adornerLayer = AdornerLayer.GetAdornerLayer(_atom);
             adornerLayer.Add(new ResizeHandler(_atom));
             adorner = adornerLayer.GetAdorners(_atom)[0];
+        }
+
+        private void KeyDown(object sender, KeyEventArgs e)
+        {
+            Debug.WriteLine("dd");
+
+            switch (e.Key)
+            {
+                case Key.Delete:
+                case Key.Back:
+                case Key.Left:
+                case Key.A:
+                    _canvas.Children.Remove(Target);
+                    Debug.WriteLine("dd");
+                    break;
+            }
         }
 
         #region Events
@@ -77,6 +93,8 @@ namespace Stack.Handler.Movement
             _point = e.GetPosition(_canvas);
             _margin = _atom.Margin;
             _isDrag = true;
+
+            Target = _atom;
 
             var units = new FrameworkElement[] { _location };
             new AttributeHandler(units);

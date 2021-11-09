@@ -14,8 +14,8 @@ namespace Stack.Data.Import
 {
     class Document
     {
-        XmlDocument doc = new XmlDocument();
-        Main main = Main.Instance;
+        readonly XmlDocument doc = new XmlDocument();
+        readonly Main main = Main.Instance;
 
         public Document(string docPath)
         {
@@ -23,7 +23,6 @@ namespace Stack.Data.Import
             main.Canvas.Children.Clear();
 
             SetStackInfo();
-
             SetAtomInfo();
             /*            XmlNodeList nodes = doc.SelectNodes("/Employees/Employee");
 
@@ -47,7 +46,7 @@ namespace Stack.Data.Import
 
         private double AtoI(string str)
         {
-            return Convert.ToInt32(str);
+            return Convert.ToDouble(str);
         }
 
         private XmlNodeList GetNodeList(string node)
@@ -130,7 +129,7 @@ namespace Stack.Data.Import
                                         image.Height = AtoI(att.Value);
                                         break;
                                     case "Source":
-                                        image.image.Source = Image.Convert.Base64ToImage(att.Value); //  Image.Convert.Base64ToImage(att.Value);
+                                        image.image.Source = Image.Convert.Base64ToImage(att.Value);
                                         break;
                                 }
                             }

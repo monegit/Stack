@@ -65,7 +65,7 @@ namespace Stack
             new Export(Canvas);
         }
         
-        private void Drop(object sender, DragEventArgs e)
+        private new void Drop(object sender, DragEventArgs e)
         {
             var a = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             if (a[0].Contains(".st"))

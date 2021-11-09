@@ -10,9 +10,5 @@ namespace Stack.UI.Modal
 {
     class Modal
     {
-        public Modal(Grid target)
-        {
-            target.Children.Add(new ModalView());
-        }
     }
 }

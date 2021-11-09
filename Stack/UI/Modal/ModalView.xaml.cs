@@ -21,14 +21,10 @@ namespace Stack.UI.Modal
     /// </summary>
     public partial class ModalView : UserControl
     {
-        public ModalView()
+        public ModalView(Grid target)
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            new Modal(Main.Instance.StackBase);
+            target.Children.Add(this);
         }
 
         private void grid_MouseDown(object sender, MouseButtonEventArgs e)
