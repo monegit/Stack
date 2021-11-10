@@ -4,5 +4,5 @@
 
 
 
-### 🎨 Simple is Best! Stack Mokup
+### 🎨 Simple is Best! Stack Mockup
 
