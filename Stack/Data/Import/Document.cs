@@ -24,24 +24,6 @@ namespace Stack.Data.Import
 
             SetStackInfo();
             SetAtomInfo();
-            /*            XmlNodeList nodes = doc.SelectNodes("/Employees/Employee");
-
-                        foreach (XmlNode emp in nodes)
-                        {
-                            // Attribute 읽기
-                            string id = emp.Attributes["Id"].Value;
-
-                            // 특정 자식 Element 읽기
-                            string name = emp.SelectSingleNode("./Name").InnerText; //Relative Path 사용
-                            string dept = emp.SelectSingleNode("Dept").InnerText;   //간단히 자식 Element명 사용
-                            Console.WriteLine(id + "," + name + "," + dept);
-
-                            // 자식 노드들에 대해 Loop를 도는 예
-                            foreach (XmlNode child in emp.ChildNodes)
-                            {
-                                Console.WriteLine("{0}: {1}", child.Name, child.InnerText);
-                            }
-                        }*/
         }
 
         private double AtoI(string str)
