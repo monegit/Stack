@@ -16,11 +16,10 @@ namespace Stack.Handler.Movement
     {
         private readonly FrameworkElement _atom;
         private readonly Canvas _canvas;
-        private static FrameworkElement Target;
+        private static FrameworkElement onFocus;
 
         // Attributes
         public Location _location = new Location();
-        //privete
         private AdornerLayer adornerLayer;
         Adorner adorner;
 
@@ -29,7 +28,8 @@ namespace Stack.Handler.Movement
             target.MouseLeftButtonDown += MouseDown;
             target.MouseLeftButtonUp += MouseUp;
             target.MouseMove += MouseMove;
-            Main.Instance.PreviewKeyDown += KeyDown;
+            Main.Instance.PreviewKeyDown += Main_KeyDown;
+            Main.Instance.Canvas.PreviewMouseDown += Main_MouseDown;
 
             _atom = target;
             _atom.Width = 100;
@@ -37,19 +37,33 @@ namespace Stack.Handler.Movement
             _canvas = canvas;
 
             _location.Target = _atom;
-
-            adornerLayer = AdornerLayer.GetAdornerLayer(_atom);
-            adornerLayer.Add(new ResizeHandler(_atom));
-            adorner = adornerLayer.GetAdorners(_atom)[0];
         }
 
-        private void KeyDown(object sender, KeyEventArgs e)
+
+        private void RemoveAdorner(FrameworkElement atom)
+        {
+
+            /*foreach (var _ in adornerLayer?.GetAdorners(atom))
+            {
+                adorner = _;
+                adornerLayer.Remove(adorner);
+            }*/
+        }
+
+        private void SetAdorner(FrameworkElement target)
+        {
+            adornerLayer = AdornerLayer.GetAdornerLayer(target);
+            adornerLayer.Add(new ResizeHandler(target));
+            adorner = adornerLayer.GetAdorners(target)[0];
+        }
+
+        private void Main_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.Key)
             {
                 case Key.Delete:
                 case Key.Back:
-                    _canvas.Children.Remove(Target);
+                    _canvas.Children.Remove(onFocus);
                     break;
             }
         }
@@ -89,17 +103,20 @@ namespace Stack.Handler.Movement
             _margin = _atom.Margin;
             _isDrag = true;
 
-            Target = _atom;
+            // focus
+            onFocus = _atom;
+
+            SetAdorner(_atom);
 
             var units = new FrameworkElement[] { _location };
             new AttributeHandler(units);
+        }
 
-            switch (e.Source.GetType().Name)
-            {
-                case "Button":
-                    Debug.WriteLine("button");
-                    break;
-            }
+        private void Main_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Debug.WriteLine(e.Source.GetType().Name);
+            //if (sender.GetType().Name == "Image")
+                RemoveAdorner(onFocus);
         }
         #endregion
     }

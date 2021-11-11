@@ -56,5 +56,13 @@ namespace Stack.UI.Panel
             var a = new UI.Modal.ModalView(Main.Instance.StackBase);
             a.Panel.Children.Add(new Panel.Modal.SettingPanel());
         }
+
+        private void ButtonUnit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var _ = new Model.Button();
+            _.Content = "btn";
+            Main.Instance.Canvas.Children.Add(_);
+            new MovementHandler(_, Main.Instance.Canvas);
+        }
     }
 }

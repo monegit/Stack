@@ -15,6 +15,7 @@
             </Grid.RowDefinitions>
             <StackPanel x:Name="Box">
                 <unit:ImageUnit MouseLeftButtonDown="ImageUnit_MouseLeftButtonDown" />
+                <unit:ButtonUnit MouseLeftButtonDown="ButtonUnit_MouseLeftButtonDown" />
             </StackPanel>
             <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
                 <unit:SettingUnit MouseLeftButtonDown="SettingUnit_MouseLeftButtonDown" />

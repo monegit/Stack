@@ -6,9 +6,7 @@
              xmlns:local="clr-namespace:Stack.UI.Panel.Tools.Unit"
              mc:Ignorable="d" Margin="5" Height="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualWidth}" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Border Background="#333333" CornerRadius="10">
-        <Border Margin="2" CornerRadius="7" Background="#FFF3F3F3" RenderTransformOrigin="0.5,0.5" ClipToBounds="True" Padding="3">
+        <Border BorderBrush="#FFC1C1C1" BorderThickness="1" Background="#FFE3E3E3"  CornerRadius="10" RenderTransformOrigin="0.5,0.5" ClipToBounds="True" Padding="3">
             <Image Source="/Stack;component/UI/Resource/Icon/Image.png" />
         </Border>
-    </Border>
 </UserControl>

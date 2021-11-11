@@ -5,10 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using Brushes = System.Drawing.Brushes;
+using Size = System.Windows.Size;
 
 namespace Stack.Handler.Movement
 {
@@ -228,6 +231,18 @@ namespace Stack.Handler.Movement
                 targetElement.MaxHeight = parentElement.ActualHeight;
                 targetElement.MaxWidth = parentElement.ActualWidth;
             }
+        }
+
+        protected override void OnRender(DrawingContext drawingContext)
+        {
+            var a = new Grid()
+            {
+                Width = 100,
+                Height = 100,
+                Background = System.Windows.Media.Brushes.Red
+            };
+
+            //drawingContext.DrawDrawing(a, null, );
         }
     }
 }

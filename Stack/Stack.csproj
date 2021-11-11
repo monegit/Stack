@@ -104,6 +104,9 @@
     <Compile Include="UI\Panel\Tools\ToolFrame.xaml.cs">
       <DependentUpon>ToolFrame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Panel\Tools\Unit\ButtonUnit.xaml.cs">
+      <DependentUpon>ButtonUnit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Panel\Tools\Unit\ImageUnit.xaml.cs">
       <DependentUpon>ImageUnit.xaml</DependentUpon>
     </Compile>
@@ -163,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Panel\Tools\ToolFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Panel\Tools\Unit\ButtonUnit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
